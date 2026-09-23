@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "AuITgtvoZqw=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Dakom\\Documents\\GitHub\\net25-generativ-ai-Blackprowhe\\backend\\backend.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dakom\\.nuget\\packages\\azure.ai.inference\\1.0.0-beta.5\\azure.ai.inference.1.0.0-beta.5.nupkg.sha512",
+    "C:\\Users\\Dakom\\.nuget\\packages\\azure.core\\1.46.1\\azure.core.1.46.1.nupkg.sha512",
+    "C:\\Users\\Dakom\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\8.0.0\\microsoft.bcl.asyncinterfaces.8.0.0.nupkg.sha512",
+    "C:\\Users\\Dakom\\.nuget\\packages\\openai\\2.14.0\\openai.2.14.0.nupkg.sha512",
+    "C:\\Users\\Dakom\\.nuget\\packages\\system.clientmodel\\1.15.0\\system.clientmodel.1.15.0.nupkg.sha512",
+    "C:\\Users\\Dakom\\.nuget\\packages\\system.memory.data\\10.0.9\\system.memory.data.10.0.9.nupkg.sha512"
+  ],
+  "logs": []
+}

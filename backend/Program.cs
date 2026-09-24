@@ -2,6 +2,17 @@ using CharactherGenerator.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("React", policy =>
+    {
+        policy
+            .WithOrigins("http://localhost:5173")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 var endpoint = builder.Configuration["AzureAI:Endpoint"]
     ?? throw new InvalidOperationException("AzureAI:Endpoint saknas.");
 
@@ -12,6 +23,8 @@ builder.Services.AddSingleton<AiService>(sp =>
     new AiService(endpoint, apiKey));
 
 var app = builder.Build();
+
+app.UseCors("React");
 
 app.MapPost("/api/character/generate", async (
     GenerateCharacterRequest request,

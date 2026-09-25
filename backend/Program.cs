@@ -1,6 +1,12 @@
 using CharactherGenerator.Api.Services;
+using CharactherGenerator.Api.Data;
+using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<AppDbContext>(Options =>
+Options.UseSqlite("Data Source=characther-generator.db"));
 
 builder.Services.AddCors(options =>
 {

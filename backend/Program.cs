@@ -1,5 +1,6 @@
 using CharactherGenerator.Api.Services;
 using CharactherGenerator.Api.Data;
+using CharactherGenerator.Api.Models;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 
@@ -39,6 +40,20 @@ app.MapPost("/api/character/generate", async (
     var result = await aiService.GenerateCharacter(request.Prompt);
 
     return Results.Ok(result);
+});
+
+app.MapPost("/api/chats", async (AppDbContext db) =>
+{
+    var chat = new Chat
+    {
+        Title = "Ny chatt",
+        CreatedAt = DateTime.UtcNow
+    };
+
+    db.Chats.Add(chat);
+    await db.SaveChangesAsync();
+
+    return Results.Ok(chat);
 });
 
 app.Run();

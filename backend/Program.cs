@@ -56,6 +56,17 @@ app.MapPost("/api/chats", async (AppDbContext db) =>
     return Results.Ok(chat);
 });
 
+app.MapGet("/api/chats", async (AppDbContext db) =>
+{
+    var chats = await db.Chats
+    .OrderByDescending(chat => chat.CreatedAt)
+    .ToListAsync();
+
+    return Results.Ok(chats);
+
+});
+
+
 app.Run();
 
 public record GenerateCharacterRequest(string Prompt);

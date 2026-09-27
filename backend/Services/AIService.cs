@@ -1,6 +1,7 @@
 using System.ClientModel;
 using OpenAI;
 using OpenAI.Chat;
+using CharactherGenerator.Api.Models;
 
 namespace CharactherGenerator.Api.Services;
 
@@ -20,10 +21,31 @@ public class AiService
         );
     }
 
-    public async Task<string> GenerateCharacter(string prompt)
+    public async Task<string> GenerateResponse(IEnumerable<Message> history)
     {
-        ChatCompletion response = await _client.CompleteChatAsync(prompt);
+        List<ChatMessage> messages =
+        [
+            new SystemChatMessage(
+                "Du är en hjälpsam AI-assistent. " +
+                "Kom ihåg kontexten från konversationen och svara naturligt på svenska."
+            )
+        ];
 
-        return response.Content[0].Text;
+        foreach (var message in history)
+        {
+            if (message.Role == "user")
+            {
+                messages.Add(new UserChatMessage(message.Content));
+            }
+            else if (message.Role == "assistant")
+            {
+                messages.Add(new AssistantChatMessage(message.Content));
+            }
+        }
+
+        ChatCompletion completion =
+            await _client.CompleteChatAsync(messages);
+
+        return completion.Content[0].Text;
     }
 }

@@ -2,7 +2,13 @@ AI Chat
 Det här projektet är en AI-baserad chattapplikation som är byggd med React, TypeScript och ett .NET Minimal API. Applikationen använder Azure AI Foundry för den generativa AI-delen och SQLite tillsammans med Entity Framework Core för att spara chattar och meddelanden. Syftet med projektet är att skapa en enkel chattapplikation där användaren kan skapa flera olika konversationer och fortsätta på tidigare chattar.
 
 
-För att starta projektet behöver både backend och frontend köras. För backend går man till projektmappen och kör dotnet restore och sedan dotnet run. API:t körs lokalt på den port som anges i terminalen, exempelvis http://localhost:5068. Frontend startas genom att gå till frontend-mappen och köra npm install följt av npm run dev. React-applikationen körs då normalt på http://localhost:5173.
+För att starta projektet behöver både backend och frontend köras. För backend går man till projektmappen med komandot
+
+cd backend  och kör därifrån kommandot
+
+ dotnet run 
+ 
+ API:t körs lokalt på den port som anges i terminalen, exempelvis http://localhost:5068. Frontend startas genom att gå till frontend-mappen och köra npm install följt av npm run dev. React-applikationen körs då normalt på http://localhost:5173.
 
 !!!!!!!!!!!!OBS Av någon anledning vart det dubbelmapp i frontend så man måste navigera dit två gånger 
 

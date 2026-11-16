@@ -1,0 +1,26 @@
+# .NET
+**/bin/
+**/obj/
+
+# Node.js
+**/node_modules/
+
+# Build output
+**/dist/
+**/build/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE
+.vs/
+.vscode/
+*.user
+*.suo
